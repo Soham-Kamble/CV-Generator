@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-section {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-title {
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border-color: #ccc;
+        }
+
+        .btn-primary {
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 500;
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-section">
+        <div class="form-title">Generate Your CV</div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="summary">About You</label>
+                <textarea class="form-control" id="summary" name="summary" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="degree">Degree</label>
+                <input type="text" class="form-control" id="degree" name="degree">
+            </div>
+
+            <div class="form-group">
+                <label for="school">School</label>
+                <input type="text" class="form-control" id="school" name="school">
+            </div>
+
+            <div class="form-group">
+                <label for="university">University</label>
+                <input type="text" class="form-control" id="university" name="university">
+            </div>
+
+            <div class="form-group">
+                <label for="previous_work">Previous Work</label>
+                <textarea class="form-control" id="previous_work" name="previous_work" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <textarea class="form-control" id="skills" name="skills" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Generate CV</button>
+
+            <a href="{% url 'list' %}" type="submit" class="btn btn-success btn-block">List of Profiles</a>
+
+
+        </form>
+    </div>
+</body>
+
+</html>
